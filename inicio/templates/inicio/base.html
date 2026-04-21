@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{%block title%} Plennus {%endblock%}</title>
+</head>
+<body>
+    <nav>
+     <a href="{% url 'inicio' %}">Inicio</a>
+      <a href="">Contactate</a>
+      <a href="">Inicia Sesion</a>
+      <a href="/admin">Admin</a>
+    </nav>
+
+    {% block body %}
+    <!--  -->
+    {% endblock %}
+
+    <footer>
+     <p>© 2024 Plennus - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
