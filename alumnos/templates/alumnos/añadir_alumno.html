@@ -1,0 +1,22 @@
+{% extends 'alumnos/base.html'%}
+
+{%block title%}
+Nuevo alumno
+{%endblock%}
+
+
+{%block body%}
+
+<h1>Nuevo alumno</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{user_form.as_p}}
+    {{persona_form.as_p}}
+    {{alumno_form.as_p}}
+
+    <button type="submit">Crear</button>
+</form>
+
+{%endblock%}

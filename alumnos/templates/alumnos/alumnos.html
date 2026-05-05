@@ -1,0 +1,45 @@
+{% extends 'alumnos/base.html'%}
+
+{%block title%}
+Alumnos
+{%endblock%}
+
+
+{%block body%}
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Nro_Alumno</th>
+            <th>Foto</th>
+            <th>Nombre Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr>
+            <td>{{alumno.nro_alumno}}</td>
+            <td>
+                {% if alumno.persona.imagen %}
+                    <img src="{{alumno.persona.imagen.url}}" alt="imagen {{alumno.persona.imagen}}" width="100px">
+                {%else%}
+                    Sin foto
+                {% endif %}
+            </td>
+            <td>{{alumno.persona.user.username}}</td>
+            <td>{{alumno.persona.user.first_name}}</td>
+            <td>{{alumno.persona.user.last_name}}</td>
+            <td>{{alumno.persona.user.email}}</td>
+            <td>{{alumno.persona.telefono}}</td>
+            <td>
+                <a href="{%url 'editar' alumno.id %}">Editar</a>
+            </td>
+        </tr>
+        {%  endfor %}
+    </tbody>
+    </table>
+{%endblock%}
