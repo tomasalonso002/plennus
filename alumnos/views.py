@@ -38,11 +38,11 @@ def crear_usuario(request):
 
 
 
-def editar_alumno(request, id):
-    alumno = get_object_or_404(Alumno, id=id)
-    persona = get_object_or_404(Persona,  = alumno)
+#def editar_alumno(request, id):
+ #   alumno = get_object_or_404(Alumno, id=id)
+#    persona = get_object_or_404(Persona,  = alumno)
 
-    if request.method == "POST":
+ #   if request.method == "POST":
 
 
 

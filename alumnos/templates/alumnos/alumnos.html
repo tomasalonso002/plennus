@@ -35,9 +35,6 @@ Alumnos
             <td>{{alumno.persona.user.last_name}}</td>
             <td>{{alumno.persona.user.email}}</td>
             <td>{{alumno.persona.telefono}}</td>
-            <td>
-                <a href="{%url 'editar' alumno.id %}">Editar</a>
-            </td>
         </tr>
         {%  endfor %}
     </tbody>
