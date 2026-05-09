@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
 # Create your views here.
@@ -7,12 +7,13 @@ from .forms import UserForm,AlumnoForm,PersonaForm
 from .models import Alumno, Persona
 from django.contrib.auth.models import User
 
+@login_required
 def get_alumnos(request):
     alumnos = Alumno.objects.all()
     contexto = {"alumnos":alumnos}
     return render(request, "alumnos/alumnos.html", contexto)
 
-
+@login_required
 @transaction.atomic
 def crear_usuario(request):
     if request.method == "POST":

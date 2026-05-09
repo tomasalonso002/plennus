@@ -7,8 +7,17 @@
 </head>
 <body>
     <nav>
+        {% if user.is_authenticated %}
         <a href="{% url 'crear_alumno' %}">Crear alumnos</a>
         <a href="{% url 'mostrar_alumnos' %}">Mostrar alumnos</a>
+        <form method="POST" action="{% url 'logout'%}">
+            {%csrf_token%}
+            <button type="submit">Cerrar Sesion</button>
+        </form>
+
+        {%else%}
+        <a href="{% url 'login' %}">Iniciar Sesion</a>
+        {%endif%}
     </nav>
 
     {% block body %}
