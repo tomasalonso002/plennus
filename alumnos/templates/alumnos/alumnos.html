@@ -37,6 +37,13 @@ Alumnos
             <td>{{alumno.persona.user.last_name}}</td>
             <td>{{alumno.persona.user.email}}</td>
             <td>{{alumno.persona.telefono}}</td>
+            <td>
+                <a href="{%url 'editar_alumno' alumno.id %}">Editar</a>
+                <form method="post"  action="{% url 'borrar_alumno' alumno.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Borrar</button>
+                </form>
+            </td>
         </tr>
         {%  endfor %}
     </tbody>

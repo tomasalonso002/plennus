@@ -7,16 +7,16 @@ Editar Alumno
 
 {%block body%}
 
-<h1>Editar alumno</h1>
+<h1 class="text-3xl font-bold">Hola Tailwind</h1>
 
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {{user_form.as_p}}
-    {{persona_form.as_p}}
-    {{alumno_form.as_p}}
+    {{form_usuario.as_p}}
+    {{form_alumno.as_p}}
+    {{form_persona.as_p}}
 
-    <button type="submit">Crear</button>
+    <button type="submit">Completar edicion</button>
 </form>
 
 {%endblock%}

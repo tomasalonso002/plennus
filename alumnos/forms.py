@@ -17,3 +17,8 @@ class AlumnoForm(forms.ModelForm):
     class Meta:
         model=Alumno
         fields = ["nro_alumno"]
+
+class Editar_user_form(forms.ModelForm):
+    class Meta:
+        model= User
+        fields= ['username', 'last_name', 'email', 'first_name']

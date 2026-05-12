@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "tailwind",
+    "theme",
     'alumnos',
+    'inicio',
 ]
 
+TAILWIND_APP_NAME = "theme"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,8 +72,8 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL='inicio'
-LOGOUT_REDIRECT_URL ='login'
+LOGIN_REDIRECT_URL='alumnos'
+LOGOUT_REDIRECT_URL ='inicio'
 
 WSGI_APPLICATION = 'plennus.wsgi.application'
 
