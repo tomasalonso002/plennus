@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "tailwind",
-    "theme",
     'alumnos',
     'inicio',
 ]
@@ -72,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL='alumnos'
+LOGIN_REDIRECT_URL='inicio'
 LOGOUT_REDIRECT_URL ='inicio'
 
 WSGI_APPLICATION = 'plennus.wsgi.application'

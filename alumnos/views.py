@@ -7,6 +7,12 @@ from .forms import UserForm,AlumnoForm,PersonaForm, Editar_user_form
 from .models import Alumno, Persona
 from django.contrib.auth.models import User
 
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
+
+
+        
+
 @login_required
 def get_alumnos(request):
     alumnos = Alumno.objects.filter(activo = True).order_by("-id")
@@ -44,6 +50,9 @@ def borrar_alumno(request, id):
         if alumno.activo:
             alumno.activo=False
             alumno.save()
+            usuario = alumno.persona.user
+            usuario.is_active = False
+            usuario.save()
         return redirect("alumnos")
     return render(request,"alumnos/alumnos.html",{"alumnos":alumno})
 

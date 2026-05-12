@@ -1,12 +1,27 @@
 {% extends 'alumnos/base.html'%}
 
-{%block title%}
-Plennus
-{%endblock%}
 
 
 {%block body%}
 
-<h1>Bienvenido a plenus</h1>
+{% if user.is_authenticated %}
+<div>
+    <h1>¡Bienvenido nuevamente, {{ user.username }}!</h1>
+    <p>
+        Nos alegra verte en Plennus.
+    </p>
+</div>
+
+{%else%}
+<div>
+    <h1>Bienvenido a plenus</h1>
+    <p>
+    Bienvenido a Plennus, el lugar donde cada entrenamiento te acerca a tu mejor versión.
+    Contamos con un espacio moderno, energía motivadora y profesionales que te acompañan en cada paso.
+    Ya sea que busques ganar fuerza, mejorar tu salud o superar tus límites, este es tu lugar.
+    Sumate a nuestra comunidad y empezá hoy el cambio que estabas buscando.
+    </p>
+</div>
+{%endif%}
 
 {%endblock%}
