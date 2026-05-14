@@ -1,0 +1,30 @@
+{% extends 'alumnos/base.html'%}
+{%block body%}
+
+<h1>Consultas</h1>
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Consulta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for consulta in consultas %}
+        <tr>
+            <td>{{consulta.nombre}}</td>
+            <td>{{consulta.email}}</td>
+            <td>{{consulta.telefono}}</td>
+            <td>{{consulta.consulta}}</td>
+            <td>
+                <a href="#">Editar</a>
+                <button type="submit">Borrar</button>
+            </td>
+        </tr>
+        {%  endfor %}
+    </tbody>
+    </table>
+{%endblock%}

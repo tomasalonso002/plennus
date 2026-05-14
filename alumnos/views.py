@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
 # Create your views here.
-from .forms import UserForm,AlumnoForm,PersonaForm, Editar_user_form
-from .models import Alumno, Persona
+from .forms import UserForm,AlumnoForm,PersonaForm, Editar_user_form, ConsultaForm
+from .models import Alumno, Persona, Consultas
 from django.contrib.auth.models import User
 
 from django.contrib.auth.views import LoginView
@@ -76,6 +76,18 @@ def editar_alumno(request, id):
         form_usuario = Editar_user_form(instance=usuario)
     return render(request, "alumnos/editar_alumno.html", {"form_alumno":form_alumno,"form_persona": form_persona, "form_usuario":form_usuario})
 
-    
 
+def nueva_consulta(request):
+    if request.method == "POST":
+        consulta_form = ConsultaForm(request.POST)
+        if consulta_form.is_valid():
+            consulta_form.save()
+            return redirect("inicio")
+    else:
+        consulta_form = ConsultaForm()
+    return render(request, "inicio/consultas.html",{"consulta_form": consulta_form})
 
+@login_required
+def get_consultas(request):
+    consultas = Consultas.objects.filter(activo = True).order_by("-id")
+    return render(request,"alumnos/mostrar_consultas.html", {"consultas":consultas})

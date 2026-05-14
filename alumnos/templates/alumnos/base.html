@@ -13,6 +13,7 @@
         <div>
             <a href="{% url 'crear_alumno' %}">Crear alumnos</a>
             <a href="{% url 'mostrar_alumnos' %}">Mostrar alumnos</a>
+            <a href="{% url 'mostrar_consultas' %}">Consultas</a>
         </div>
         <form method="POST" action="{% url 'logout'%}">
             {%csrf_token%}
@@ -22,6 +23,7 @@
         {%else%}
         <a href="{% url 'inicio' %}">Inicio</a>
         <a href="{% url 'login' %}">Iniciar Sesion</a>
+        <a href="{% url 'nueva_consulta' %}">Consultas</a>
         {%endif%}
     </nav>
 

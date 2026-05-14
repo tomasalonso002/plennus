@@ -1,0 +1,22 @@
+{% extends 'alumnos/base.html'%}
+{%block body%}
+
+{% if user.is_authenticated %}
+<div>
+    <h1>¡Bienvenido nuevamente, {{ user.username }}!</h1>
+    <p>
+        Nos alegra verte en Plennus.
+    </p>
+</div>
+
+{%else%}
+
+<form method="POST">
+    {% csrf_token %}
+    {{consulta_form.as_p}}
+    <button type="submit">Enviar Consulta</button>
+</form>
+
+{%endif%}
+
+{%endblock%}
